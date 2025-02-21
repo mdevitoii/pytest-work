@@ -11,7 +11,7 @@ from inspect import getmembers,isfunction   # used to find student's method if i
 
 
 # folder name of where student files are located
-folder = "student_files" 
+folder = "test_files" 
 
 # includes the folder where student files are into the current working directory
 sysPath.append(path.join(getcwd(),folder)) 
