@@ -79,6 +79,7 @@ for file in toGrade: # for each student file, run a pytest
 
         # finds main() if it isn't called main
         conversion_function = find_conversion_function(module)
+        @pytest.mark.main_test
         def test_program_case1(monkeypatch, capsys):
                 
             if not module or not conversion_function: # throws error if no method is found
