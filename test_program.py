@@ -62,10 +62,6 @@ def extract_cmyk_values(output):
 
 for file in toGrade: # for each student file, run a pytest
 
-    # Troubleshooting:
-    # print(f'To Grade: \n{toGrade}\n\n')
-    # print(f'Graded: \n{graded}\n\n')
-
     if file not in graded:
         print(f'\n----------------------------------\nFile Being Graded: {file}\n')
         # initialize the module using the load_student_module function
