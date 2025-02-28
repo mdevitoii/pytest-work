@@ -6,13 +6,14 @@ import pytest                               # used to test student code
 import importlib.util                       # used to import student modules
 from os import path,getcwd                  # used to get directory of student files
 from sys import path as sysPath             # used also to get directory of student files
-from re import search,DOTALL                # used to match student output to expected output
 
 '''
 Running a test:
 
 Ants.py:
-pytest -s -m main_test
+pytest -m ants_test
+
+
 '''
 
 
@@ -56,16 +57,33 @@ for file in toGrade: # for each student file, run a pytest
             
         @pytest.mark.ants_test
         def test_ants(capsys):
-                
-            if not module: # throws error if no method is found
-                print(f"Skipping non-Python file: {file}")
+            if "ants" in file:    
+                if not module: # throws error if no method is found
+                    print(f"Skipping non-Python file: {file}")
 
-            try:    
-                # runs the main() function
-                file.main()
+                try:    
+                    # runs the main() function
+                    file.main()
 
-                captured = capsys.readouterr() # gets the output after we put in our inputs
+                    captured = capsys.readouterr() # gets the output after we put in our inputs
 
-                assert captured
-            except:
-                print(f"TestCase 1: Manual Review required for error found in file: {file}")
+                    assert captured
+                except:
+                    print(f"TestCase ANTS: Manual Review required for error found in file: {file}")
+
+        @pytest.mark.era_test
+        def test_era(capsys):
+            
+            if "era" in file:
+                if not module: # throws error if no method is found
+                    print(f"Skipping non-Python file: {file}")
+
+                try:    
+                    # runs the era() function
+                    file.era(91,25)
+
+                    captured = capsys.readouterr() # gets the output after we put in our inputs
+
+                    assert captured == 2.47
+                except:
+                    print(f"TestCase ERA: Manual Review required for error found in file: {file}")
