@@ -8,11 +8,11 @@ from os import path,getcwd                  # used to get directory of student f
 from sys import path as sysPath             # used also to get directory of student files
 
 '''
-Running a test:
-
 Ants.py:
 pytest -m ants_test
 
+era.py:
+pytest -m era_test
 
 '''
 
@@ -41,9 +41,6 @@ def load_student_module(filepath):
 
 for file in toGrade: # for each student file, run a pytest
 
-    # Troubleshooting:
-    # print(f'To Grade: \n{toGrade}\n\n')
-    # print(f'Graded: \n{graded}\n\n')
 
     if file not in graded:
         print(f'\n----------------------------------\nFile Being Graded: {file}\n')
